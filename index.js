@@ -5,7 +5,11 @@ button = document.getElementById("botao")
     fetch('https://pokeapi.co/api/v2/pokemon/'+nome)
     .then(function(response){ 
         return response.json()
-        .then(function(response){ 
+        .then(function(response){
+            console.log(response.abilities) 
+            for(const hab of response.abilities){ 
+                console.log(hab.ability.name)
+            }
             console.log(response.sprites.front_default)
 
             let url = response.sprites.front_default
